@@ -4,11 +4,8 @@ rm (list = ls())
 library(osmdata)
 library(osmextract)
 library(sf)
-library(sp)
 library(rgdal)
-library(rgeos)
 library(ggmap)
-library(raster)
 
 setwd("C:/Users/S M Labib/Desktop/GSV_GLASST")
 
