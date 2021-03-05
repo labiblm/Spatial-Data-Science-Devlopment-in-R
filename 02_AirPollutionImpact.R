@@ -219,6 +219,6 @@ for (laname in 1:length(LAwithCR_cocen$LANames)) {
 
 #clean unnecessary files or other files that do not overwrite.
 
-do.call(file.remove, list(list.files(path = paste0(Globalpath),pattern = "LAchangedconNOx.tif$",full.names = TRUE, recursive = TRUE)))
+do.call(file.remove, list(list.files(path = paste0(Globalpath),pattern = "filename.tif$",full.names = TRUE, recursive = TRUE)))
 
 
