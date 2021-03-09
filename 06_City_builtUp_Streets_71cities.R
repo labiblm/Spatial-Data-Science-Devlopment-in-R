@@ -10,12 +10,10 @@
 # OSMnx data: https://dataverse.harvard.edu/dataverse/global-urban-street-networks
 
 ##############################Libraries##########################################
-
-
-library(sf)
-library(sp)
-library(rgdal)
-library(rgeos)
+library(sf) # v ‘0.9.6’ 
+library(sp) # v ‘1.4.4’
+library(rgdal) # v ‘1.5.18’
+library(rgeos) 
 library(raster)
 library(ggmap)
 
@@ -26,7 +24,6 @@ rm (list = ls())
 Globalpath<- "C:/Users/S M Labib/Desktop/GSV_GLASST/"
 
 setwd("C:/Users/S M Labib/Desktop/GSV_GLASST")
-
 
 ########################## Read data ##########################################
 
