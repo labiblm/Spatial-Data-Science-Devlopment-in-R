@@ -112,7 +112,7 @@ st_write(CBRS, "RomeGrids.shp", overwrite = TRUE)
 
 
 
-
+#Get the bus routes in London area
 q2 <- getbb("Greater London") %>%
   opq() %>%
   add_osm_feature("bus")
