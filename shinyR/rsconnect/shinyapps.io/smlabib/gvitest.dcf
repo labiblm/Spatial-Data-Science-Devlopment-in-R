@@ -1,0 +1,12 @@
+name: gvitest
+title: GVItest
+username:
+account: smlabib
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1674669
+bundleId: 2737922
+url: https://smlabib.shinyapps.io/gvitest/
+when: 1579384807.91588
+asMultiple: FALSE
+asStatic: FALSE

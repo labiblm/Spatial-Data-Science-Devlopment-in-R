@@ -1,0 +1,28 @@
+library(raster)
+library(mapview)
+library(leaflet)
+library(leafem)
+library(shiny)
+
+f <- system.file("F:/Data/gvi-test-4.tif", package="raster")
+r <- raster(f)
+pal <- colorNumeric(c("Greens"), values(r),
+                    na.color = "transparent")
+
+
+ui <- fluidPage(
+  leafletOutput("map")
+)
+
+server <- function(input, output){
+  output$map <- renderLeaflet({
+    leaflet() %>% 
+    addTiles() %>% 
+      addRasterImage(r, colors = pal, opacity = 0.6, layerId = "values") %>% 
+      addLegend(pal = pal, values = values(r), title = "GVI") %>%
+      addMouseCoordinates() %>%
+      addImageQuery(r, type="click", layerId = "values")
+  })
+}
+
+shinyApp(ui, server)

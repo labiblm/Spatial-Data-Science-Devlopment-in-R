@@ -1,0 +1,13 @@
+name: gvitestlabib
+title: GVItestLabib
+username:
+account: smlabib
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1674728
+bundleId: 2737971
+url: https://smlabib.shinyapps.io/gvitestlabib/
+when: 1579387342.33608
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Data/BaseRcodeShiny.txt

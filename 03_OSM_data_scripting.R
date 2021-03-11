@@ -15,12 +15,12 @@ dsn <- "C:/Users/S M Labib/Desktop/GSV_GLASST"
 #Read the city street data
 
 cycleways = oe_get(
-  "El Paso",
+  "London",
   quiet = FALSE,
-  query = "SELECT * FROM 'lines' WHERE highway = 'cycleway'"
+  query = "SELECT * FROM 'lines' WHERE highway = 'bus'"
 )
 par(mar = rep(0.1, 4))
-plot(sf::st_geometry(cycleways_england))
+plot(sf::st_geometry(cycleways))
 
 st_write(cycleways, dsn, "CycleTexas.shp", driver = "ESRI Shapefile", overwrite = TRUE)
 
@@ -113,9 +113,9 @@ st_write(CBRS, "RomeGrids.shp", overwrite = TRUE)
 
 
 
-q2 <- getbb("Greater Manchester") %>%
+q2 <- getbb("Greater London") %>%
   opq() %>%
-  add_osm_feature("building")
+  add_osm_feature("bus")
 
 GMdata <- osmdata_sf(q2)
 
@@ -126,23 +126,29 @@ GBBuildingS <- st_as_sf (GBBuilding)
 writeOGR(GBBuilding, dsn, layer = GBBuildingS, driver="ESRI Shapefile", overwrite = TRUE)
 
 
-city <- "Hamburg"
+city <- "London"
 
 r2 <- getbb(city) %>%
   opq() %>%
-  add_osm_feature("highway", value = c("cycleway"))
+  add_osm_feature("route", value = c("bus"))
   #add_osm_feature("highway", value = c("motorway", "primary", "secondary", "tertiary"))
 
 motorway <- osmdata_sf(r2)
 
+busroute <- as_Spatial(motorway$osm_multilines)
+
+bus <-st_as_sf(busroute)
+
 #roadn <- as_Spatial(motorway$osm_lines)
+#writeOGR(busroute, dsn, layer = busroute, driver="GPKG", overwrite = TRUE)
+st_write(bus, "Bus.shp", overwrite = TRUE)
 
 
 mad_map <- get_map(getbb(city), maptype = "toner-background")
 
 
 ggmap(mad_map)+
-  geom_sf(data = motorway$osm_lines,
+  geom_sf(data = motorway$osm_multilines,
           inherit.aes = FALSE,
           colour = "red",
           fill = "red",

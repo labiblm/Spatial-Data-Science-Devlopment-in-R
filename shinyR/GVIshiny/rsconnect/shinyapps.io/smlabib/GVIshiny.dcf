@@ -1,0 +1,12 @@
+name: GVIshiny
+title: GVIshiny
+username:
+account: smlabib
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1674706
+bundleId: 2737942
+url: https://smlabib.shinyapps.io/GVIshiny/
+when: 1579385673.99899
+asMultiple: FALSE
+asStatic: FALSE
