@@ -14,15 +14,15 @@ dsn <- "C:/Users/S M Labib/Desktop/GSV_GLASST"
 
 #Read the city street data
 
-cycleways = oe_get(
-  "London",
+cyclewaysup = oe_get(
+  "Boston", #change the city name to see different results (e.g., Utrecht,London)
   quiet = FALSE,
-  query = "SELECT * FROM 'lines' WHERE highway = 'bus'"
+  query = "SELECT * FROM 'lines' WHERE highway = 'cycleway'"
 )
 par(mar = rep(0.1, 4))
-plot(sf::st_geometry(cycleways))
+plot(sf::st_geometry(cyclewaysup))
 
-st_write(cycleways, dsn, "CycleTexas.shp", driver = "ESRI Shapefile", overwrite = TRUE)
+st_write(cyclewaysup, dsn, "Cycle.shp", driver = "ESRI Shapefile", overwrite = TRUE)
 
 
 cycleways_city = oe_get(
@@ -48,7 +48,7 @@ POIs = oe_get(
 par(mar = rep(0.1, 4))
 plot(sf::st_geometry(POIs))
 
-st_write(POIs, dsn, "CycleTexas.shp", driver = "ESRI Shapefile", overwrite = TRUE)
+st_write(POIs, dsn, "POIs.shp", driver = "ESRI Shapefile", overwrite = TRUE)
 
 
 city <- "Dhaka"
